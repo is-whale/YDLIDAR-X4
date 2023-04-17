@@ -1,57 +1,30 @@
-![YDLIDAR](images/YDLidar.jpg  "YDLIDAR")
+
 # YDLIDAR ROS Driver
-
-ydlidar_ros_driver is a new ros package, which is designed to gradually become the standard driver package for ydlidar devices in the ros environment.
-
-## Compile & Install YDLidar SDK
-
-ydlidar_ros_driver depends on YDLidar-SDK library. If you have never installed YDLidar-SDK library or it is out of date, you must first install YDLidar-SDK library. If you have installed the latest version of YDLidar-SDK, skip this step and go to the next step.
-
-1. Download or clone the [YDLIDAR/YDLidar-SDK](https://github.com/YDLIDAR/YDLidar-SDK) repository on GitHub.
-2. Compile and install the YDLidar-SDK under the ***build*** directory following `README.md` of YDLIDAR/YDLidar-SDK.
-
 ## Clone ydlidar_ros_driver
 
-1. Clone ydlidar_ros_driver package for github : 
-
-   `git clone https://github.com/YDLIDAR/ydlidar_ros_driver.git ydlidar_ws/src/ydlidar_ros_driver`
-
-2. Build ydlidar_ros_driver package :
+1. 克隆后本地编译
 
    ```
    cd ydlidar_ws
    catkin_make
    ```
-   <font color=Red size=4>>Note: If the following error occurs, Please install  [YDLIDAR/YDLidar-SDK](https://github.com/YDLIDAR/YDLidar-SDK) first.</font>
-
-   ![CMAKE ERROR](images/cmake_error.png  "CMAKE ERROR")
-
-3. Package environment setup :
-
    `source ./devel/setup.sh`
 
-    Note: Add permanent workspace environment variables.
-    It's convenientif the ROS environment variables are automatically added to your bash session every time a new shell is launched:
+2. 添加到环境变量
     ```
     $echo "source ~/ydlidar_ws/devel/setup.bash" >> ~/.bashrc
     $source ~/.bashrc
     ```
-4. Confirmation
-    To confirm that your package path has been set, echo the `ROS_PACKAGE_PATH` variable.
+3. 检查环境变量
     ```
     $ echo $ROS_PACKAGE_PATH
     ```
-    You should see something similar to:
-        `/home/tony/ydlidar_ws/src:/opt/ros/melodic/share`
 
-5. Create serial port Alias [optional] 
+5. 设置串口
     ```
 	$chmod 0777 src/ydlidar_ros_driver/startup/*
 	$sudo sh src/ydlidar_ros_driver/startup/initenv.sh
     ```
-    Note: After completing the previous operation, replug the LiDAR again.
-	
-
 ## Run ydlidar_ros_driver
 
 ##### Run ydlidar_ros_driver using launch file
@@ -141,10 +114,6 @@ The ydlidar_ros_driver internal parameters are in the launch file, they are list
 | invalid_range_is_inf     | bool | Invalid Range is inf.<br/>true -- inf.<br/>false -- 0.0.<br/>default: `false` |
 More paramters details, see [here](details.md)
 
-## Contact EAI
-![Development Path](images/EAI.png)
-
-If you have any extra questions, please feel free to [contact us](http://www.ydlidar.cn/cn/contact)
 
 
 
